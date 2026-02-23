@@ -121,6 +121,15 @@ body{
     .hidden{
     display:none;
 }
+    .sidebar-logo{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar-logo img{
+    width:120px;
+    height:auto;
+}
 
 </style>
 </head>
@@ -135,10 +144,15 @@ body{
 <div class="main">
 
 <div class="sidebar">
+
+    <div class="sidebar-logo">
+        <img src="images/White%20logo.png" alt="Company Logo">
+    </div>
+
     <div class="menu-item active" onclick="showEmployees()">For Employees</div>
     <div class="menu-item" onclick="showManager()">For Manager/Admin</div>
-</div>
 
+</div>
 <div class="content">
 
 <div id="employeeSection">
