@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Visit</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main{
+    display:flex;
+    height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    width:240px;
+    background:#0458AB;
+    padding:15px 20px;
+    color:white;
+}
+
+.sidebar-logo{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar-logo img{
+    width:100px;
+}
+
+.menu-item{
+    padding:10px 12px;
+    border-radius:8px;
+    margin-bottom:8px;
+    cursor:pointer;
+}
+
+.menu-item:hover{
+    background:rgba(255,255,255,0.2);
+}
+
+/* ===== RIGHT SIDE ===== */
+.right-section{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.topbar{
+    height:60px;
+    background:#0458AB;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    padding:0 30px;
+}
+
+.logout-btn{
+    background:white;
+    color:#0458AB;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* ===== CONTENT ===== */
+.content{
+    padding:40px;
+}
+
+.page-title{
+    font-size:26px;
+    margin-bottom:30px;
+}
+
+.form-box{
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:6px;
+    font-size:14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding:8px 10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+
+textarea{
+    resize:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="logo.png">
+        </div>
+
+        <div class="menu-item" onclick="window.location.href='index.html'">Dashboard</div>
+        <div class="menu-item">Plan Visit</div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-section">
+
+        <div class="topbar">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="content">
+
+            <div class="page-title">Plan Visit</div>
+
+            <div class="form-box">
+                <div class="form-grid">
+
+                    <!-- Visit Category -->
+                    <div class="form-group">
+                        <label>Visit Category</label>
+                        <select>
+                            <option value="">Select Category</option>
+                            <option>Vendor Visit</option>
+                            <option>Customer Visit</option>
+                            <option>Supplier Visit</option>
+                            <option>Warehouse Visit</option>
+                        </select>
+                    </div>
+
+                    <!-- From Date -->
+                    <div class="form-group">
+                        <label>From Date</label>
+                        <input type="date">
+                    </div>
+
+                    <!-- To Date -->
+                    <div class="form-group">
+                        <label>To Date</label>
+                        <input type="date">
+                    </div>
+
+                    <!-- Remarks -->
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea rows="1" placeholder="Remarks / Purpose"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+function logout(){
+    localStorage.removeItem("loggedInUser");
+    window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
