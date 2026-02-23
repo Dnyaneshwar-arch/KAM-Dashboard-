@@ -80,8 +80,8 @@ body{
 .content{
     flex:1;
     padding:50px;
+    position:relative;
 }
-
 .page-title{
     font-size:24px;
     font-weight:600;
@@ -105,19 +105,22 @@ body{
     user-select:none;
     outline:none;
 }
-/* ===== TAB ANIMATION ===== */
+/* ===== TAB ANIMATION SYSTEM ===== */
 
 .tab-section{
     opacity:0;
-    transform:translateY(10px);
-    transition:all 0.3s ease;
-    display:none;
+    transform:translateY(15px);
+    transition:opacity 0.35s ease, transform 0.35s ease;
+    position:absolute;
+    width:100%;
+    pointer-events:none;
 }
 
 .tab-section.active{
-    display:block;
     opacity:1;
     transform:translateY(0);
+    position:relative;
+    pointer-events:auto;
 }
 </style>
 </head>
