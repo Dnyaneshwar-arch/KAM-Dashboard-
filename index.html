@@ -70,6 +70,12 @@ body{
     cursor:pointer;
     user-select:none;
     outline:none;
+    transition:all 0.25s ease;
+}
+
+.menu-item:hover{
+    background:rgba(255,255,255,0.2);
+    transform:translateX(5px);
 }
 
 .menu-item.active{
@@ -80,7 +86,6 @@ body{
 .content{
     flex:1;
     padding:50px;
-    position:relative;
 }
 .page-title{
     font-size:24px;
@@ -104,23 +109,13 @@ body{
     cursor:pointer;
     user-select:none;
     outline:none;
-}
-/* ===== TAB ANIMATION SYSTEM ===== */
-
-.tab-section{
-    opacity:0;
-    transform:translateY(15px);
-    transition:opacity 0.35s ease, transform 0.35s ease;
-    position:absolute;
-    width:100%;
-    pointer-events:none;
+    transition:all 0.25s ease;
 }
 
-.tab-section.active{
-    opacity:1;
-    transform:translateY(0);
-    position:relative;
-    pointer-events:auto;
+.module-btn:hover{
+    background:#d7f5d7;
+    transform:translateY(-4px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 </style>
 </head>
@@ -141,7 +136,7 @@ body{
 
 <div class="content">
 
-<div id="employeeSection" class="tab-section active">
+<div id="employeeSection">
     <div class="page-title">KAM Module</div>
 
     <div class="grid">
@@ -157,7 +152,7 @@ body{
     </div>
 </div>
 
-<div id="managerSection" class="tab-section">
+<div id="managerSection">
     <div class="page-title">Manager / Admin Panel</div>
 </div>
 
