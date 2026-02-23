@@ -76,23 +76,31 @@ button:hover{
     margin-bottom:15px;
 }
 
-/* ===== PASSWORD WRAPPER ===== */
+/* ===== PASSWORD WRAPPER UPDATED ===== */
 
 .password-wrapper{
-    position:relative;
+    display:flex;
+    align-items:center;
+    border:1px solid #ccc;
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:20px;
 }
 
 .password-wrapper input{
-    padding-right:60px;
+    border:none;
+    outline:none;
+    padding:12px;
+    flex:1;
+    margin:0;
 }
 
 .toggle-password{
-    position:absolute;
-    right:15px;
-    top:50%;
-    transform:translateY(-50%);
+    padding:12px 18px;
     font-size:13px;
     color:#666;
+    background:#f1f1f1;
+    border-left:1px solid #ccc;
     cursor:pointer;
 }
 
@@ -140,10 +148,10 @@ button:hover{
 
     <label>Password</label>
 
-    <div class="password-wrapper">
-        <input type="password" id="password">
-        <span class="toggle-password" onclick="togglePassword()">Show</span>
-    </div>
+  <div class="password-wrapper">
+    <input type="password" id="password" placeholder="Enter your password">
+    <div class="toggle-password" onclick="togglePassword()">Show</div>
+</div>
 
     <div class="extra-options">
         <label class="remember-me">
