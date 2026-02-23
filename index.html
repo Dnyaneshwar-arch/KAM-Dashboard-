@@ -20,6 +20,57 @@ body{
     margin:0;
 }
 
+/* ===== MAIN LAYOUT ===== */
+.main{
+    display:flex;
+    height:100vh;   /* fixed */
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    width:240px;
+    background:#0458AB;
+    padding:15px 20px;
+    color:white;
+}
+
+.sidebar-logo{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar-logo img{
+    width:100px;
+    height:auto;
+}
+
+.menu-item{
+    font-size:14px;
+    padding:10px 12px;
+    border-radius:8px;
+    margin-bottom:8px;
+    cursor:pointer;
+    user-select:none;
+    outline:none;
+    transition:all 0.25s ease;
+}
+
+.menu-item:hover{
+    background:rgba(255,255,255,0.2);
+    transform:translateX(5px);
+}
+
+.menu-item.active{
+    background:rgba(255,255,255,0.25);
+}
+
+/* ===== RIGHT SIDE ===== */
+.right-section{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
 /* ===== TOP BAR ===== */
 .topbar{
     height:60px;
@@ -46,44 +97,12 @@ body{
     font-size:13px;
 }
 
-/* ===== MAIN LAYOUT ===== */
-.main{
-    display:flex;
-    height:100vh:
-}
-
-/* ===== SIDEBAR ===== */
-.sidebar{
-    width:240px;
-    background:#0458AB;
-    padding:15px 20px;
-    color:white;
-}
-.menu-item{
-    font-size:14px;
-    padding:10px 12px;
-    border-radius:8px;
-    margin-bottom:8px;
-    cursor:pointer;
-    user-select:none;
-    outline:none;
-    transition:all 0.25s ease;
-}
-
-.menu-item:hover{
-    background:rgba(255,255,255,0.2);
-    transform:translateX(5px);
-}
-
-.menu-item.active{
-    background:rgba(255,255,255,0.25);
-}
-
 /* ===== CONTENT ===== */
 .content{
     flex:1;
     padding:50px;
 }
+
 .page-title{
     font-size:24px;
     font-weight:600;
@@ -114,34 +133,15 @@ body{
     transform:translateY(-4px);
     box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
-    
-    .hidden{
-    display:none;
-}
-    .sidebar-logo{
-    text-align:center;
-    margin-bottom:30px;
-}
 
-.sidebar-logo img{
-    width:100px;
-    height:auto;
-}
-.right-section{
-    flex:1;
-    display:flex;
-    flex-direction:column;
+.hidden{
+    display:none;
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-    <div class="user-info" id="usernameDisplay"></div>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-</div>
-    
 <div class="main">
 
     <!-- ===== SIDEBAR ===== -->
@@ -163,30 +163,32 @@ body{
             <div class="user-info" id="usernameDisplay"></div>
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
-        
-<div class="content">
 
-<div id="employeeSection">
-    <div class="page-title">KAM Module</div>
+        <div class="content">
 
-    <div class="grid">
-        <button class="module-btn">Plan Visit</button>
-        <button class="module-btn">Plan Collection</button>
-        <button class="module-btn">Plan Calls</button>
-        <button class="module-btn">Check Visit History</button>
-        <button class="module-btn">Check Calls History</button>
-        <button class="module-btn">Check Collection History</button>
-        <button class="module-btn">Check Sales Details</button>
-        <button class="module-btn">Check Leads Data</button>
-        <button class="module-btn">Customer History</button>
+            <div id="employeeSection">
+                <div class="page-title">KAM Module</div>
+
+                <div class="grid">
+                    <button class="module-btn">Plan Visit</button>
+                    <button class="module-btn">Plan Collection</button>
+                    <button class="module-btn">Plan Calls</button>
+                    <button class="module-btn">Check Visit History</button>
+                    <button class="module-btn">Check Calls History</button>
+                    <button class="module-btn">Check Collection History</button>
+                    <button class="module-btn">Check Sales Details</button>
+                    <button class="module-btn">Check Leads Data</button>
+                    <button class="module-btn">Customer History</button>
+                </div>
+            </div>
+
+            <div id="managerSection" class="hidden">
+                <div class="page-title">Manager / Admin Panel</div>
+            </div>
+
+        </div>
     </div>
-</div>
 
-<div id="managerSection" class="hidden">
-    <div class="page-title">Manager / Admin Panel</div>
-</div>
-
-</div>
 </div>
 
 <script>
@@ -207,30 +209,24 @@ function logout(){
 }
 
 function showEmployees(){
-
     document.getElementById("employeeSection").classList.remove("hidden");
     document.getElementById("managerSection").classList.add("hidden");
 
-    // remove active from all
     document.querySelectorAll(".menu-item").forEach(item=>{
         item.classList.remove("active");
     });
 
-    // add active to first
     document.querySelectorAll(".menu-item")[0].classList.add("active");
 }
 
 function showManager(){
-
     document.getElementById("employeeSection").classList.add("hidden");
     document.getElementById("managerSection").classList.remove("hidden");
 
-    // remove active from all
     document.querySelectorAll(".menu-item").forEach(item=>{
         item.classList.remove("active");
     });
 
-    // add active to second
     document.querySelectorAll(".menu-item")[1].classList.add("active");
 }
 </script>
