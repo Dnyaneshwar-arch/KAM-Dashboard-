@@ -5,12 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KAM Dashboard</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== GLOBAL ===== */
 *{
     margin:0;
     padding:0;
@@ -21,21 +18,48 @@
 body{
     background:#f4f6f9;
     display:flex;
+    flex-direction:column;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+    height:60px;
+    background:#3a6fd8;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    padding:0 30px;
+}
+
+.user-info{
+    margin-right:20px;
+    font-size:14px;
+}
+
+.logout-btn{
+    background:white;
+    color:#3a6fd8;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main{
+    display:flex;
+    flex:1;
 }
 
 /* ===== SIDEBAR ===== */
 .sidebar{
     width:240px;
-    height:100vh;
+    height:calc(100vh - 60px);
     background:linear-gradient(180deg,#17358A,#3a6fd8);
     padding:30px 20px;
     color:white;
-}
-
-.sidebar h2{
-    font-size:18px;
-    font-weight:600;
-    margin-bottom:30px;
 }
 
 .menu-item{
@@ -44,31 +68,24 @@ body{
     border-radius:8px;
     margin-bottom:8px;
     cursor:pointer;
-    transition:0.3s;
-}
-
-.menu-item:hover{
-    background:rgba(255,255,255,0.15);
 }
 
 .menu-item.active{
     background:rgba(255,255,255,0.25);
 }
 
-/* ===== CONTENT AREA ===== */
+/* ===== CONTENT ===== */
 .content{
     flex:1;
     padding:50px;
 }
 
-/* ===== HEADING ===== */
 .page-title{
     font-size:24px;
     font-weight:600;
     margin-bottom:40px;
 }
 
-/* ===== GRID BUTTONS ===== */
 .grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -79,91 +96,81 @@ body{
 .module-btn{
     padding:16px;
     border-radius:30px;
-    border:2px solid #000000;
+    border:2px solid #000;
     background:#eaeaea;
     font-size:14px;
     cursor:pointer;
-    transition:0.3s;
 }
-
-.module-btn:hover{
-    background:#d7f5d7;
-}
-
-/* ===== HIDE SECTION ===== */
 .hidden{
     display:none;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-
-    <div class="menu-item active" onclick="showEmployees()">
-        For Employees
-    </div>
-
-    <div class="menu-item" onclick="showManager()">
-        For Manager/Admin
-    </div>
-
+<div class="topbar">
+    <div class="user-info" id="usernameDisplay"></div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
-<!-- CONTENT -->
+<div class="main">
+
+<div class="sidebar">
+    <div class="menu-item active" onclick="showEmployees()">For Employees</div>
+    <div class="menu-item" onclick="showManager()">For Manager/Admin</div>
+</div>
+
 <div class="content">
 
-    <!-- EMPLOYEE SECTION -->
-    <div id="employeeSection">
+<div id="employeeSection">
+    <div class="page-title">KAM Module</div>
 
-        <div class="page-title">KAM Module</div>
-
-        <div class="grid">
-            <button class="module-btn">Plan Visit</button>
-            <button class="module-btn">Plan Collection</button>
-            <button class="module-btn">Plan Calls</button>
-
-            <button class="module-btn">Check Visit History</button>
-            <button class="module-btn">Check Calls History</button>
-            <button class="module-btn">Check Collection History</button>
-
-            <button class="module-btn">Check Sales Details</button>
-            <button class="module-btn">Check Leads Data</button>
-            <button class="module-btn">Customer History</button>
-        </div>
-
+    <div class="grid">
+        <button class="module-btn">Plan Visit</button>
+        <button class="module-btn">Plan Collection</button>
+        <button class="module-btn">Plan Calls</button>
+        <button class="module-btn">Check Visit History</button>
+        <button class="module-btn">Check Calls History</button>
+        <button class="module-btn">Check Collection History</button>
+        <button class="module-btn">Check Sales Details</button>
+        <button class="module-btn">Check Leads Data</button>
+        <button class="module-btn">Customer History</button>
     </div>
-
-    <!-- MANAGER SECTION (Empty for now) -->
-    <div id="managerSection" class="hidden">
-        <div class="page-title">Manager / Admin Panel</div>
-        <p style="font-size:14px;color:#555;">
-            (Content will be added here later)
-        </p>
-    </div>
-
 </div>
 
+<div id="managerSection" class="hidden">
+    <div class="page-title">Manager / Admin Panel</div>
+</div>
+
+</div>
+</div>
 
 <script>
+
+// ===== LOGIN CHECK =====
+const loggedUser = localStorage.getItem("loggedInUser");
+
+if(!loggedUser){
+    window.location.href = "login.html";
+} else {
+    document.getElementById("usernameDisplay").innerText = loggedUser;
+}
+
+// ===== LOGOUT =====
+function logout(){
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+}
 
 function showEmployees(){
     document.getElementById("employeeSection").classList.remove("hidden");
     document.getElementById("managerSection").classList.add("hidden");
-
-    document.querySelectorAll(".menu-item").forEach(el => el.classList.remove("active"));
-    document.querySelectorAll(".menu-item")[0].classList.add("active");
 }
 
 function showManager(){
     document.getElementById("employeeSection").classList.add("hidden");
     document.getElementById("managerSection").classList.remove("hidden");
-
-    document.querySelectorAll(".menu-item").forEach(el => el.classList.remove("active"));
-    document.querySelectorAll(".menu-item")[1].classList.add("active");
 }
 
 </script>
