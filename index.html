@@ -68,6 +68,8 @@ body{
     border-radius:8px;
     margin-bottom:8px;
     cursor:pointer;
+    user-select:none;
+    outline:none;
 }
 
 .menu-item.active{
@@ -100,9 +102,22 @@ body{
     background:#eaeaea;
     font-size:14px;
     cursor:pointer;
+    user-select:none;
+    outline:none;
 }
-.hidden{
+/* ===== TAB ANIMATION ===== */
+
+.tab-section{
+    opacity:0;
+    transform:translateY(10px);
+    transition:all 0.3s ease;
     display:none;
+}
+
+.tab-section.active{
+    display:block;
+    opacity:1;
+    transform:translateY(0);
 }
 </style>
 </head>
@@ -123,7 +138,7 @@ body{
 
 <div class="content">
 
-<div id="employeeSection">
+<div id="employeeSection" class="tab-section active">
     <div class="page-title">KAM Module</div>
 
     <div class="grid">
@@ -139,7 +154,7 @@ body{
     </div>
 </div>
 
-<div id="managerSection" class="hidden">
+<div id="managerSection" class="tab-section">
     <div class="page-title">Manager / Admin Panel</div>
 </div>
 
@@ -165,32 +180,27 @@ function logout(){
 
 function showEmployees(){
 
-    document.getElementById("employeeSection").classList.remove("hidden");
-    document.getElementById("managerSection").classList.add("hidden");
+    document.getElementById("employeeSection").classList.add("active");
+    document.getElementById("managerSection").classList.remove("active");
 
-    // remove active from all
     document.querySelectorAll(".menu-item").forEach(item=>{
         item.classList.remove("active");
     });
 
-    // add active to first
     document.querySelectorAll(".menu-item")[0].classList.add("active");
 }
 
 function showManager(){
 
-    document.getElementById("employeeSection").classList.add("hidden");
-    document.getElementById("managerSection").classList.remove("hidden");
+    document.getElementById("managerSection").classList.add("active");
+    document.getElementById("employeeSection").classList.remove("active");
 
-    // remove active from all
     document.querySelectorAll(".menu-item").forEach(item=>{
         item.classList.remove("active");
     });
 
-    // add active to second
     document.querySelectorAll(".menu-item")[1].classList.add("active");
 }
-
 </script>
 
 </body>
