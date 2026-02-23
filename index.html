@@ -137,18 +137,31 @@ body{
     <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
+<body>
+
 <div class="main">
 
-<div class="sidebar">
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar">
 
-    <div class="sidebar-logo">
-        <img src="logo.png" alt="Company Logo">
+        <div class="sidebar-logo">
+            <img src="logo.png" alt="Company Logo">
+        </div>
+
+        <div class="menu-item active" onclick="showEmployees()">For Employees</div>
+        <div class="menu-item" onclick="showManager()">For Manager/Admin</div>
+
     </div>
 
-    <div class="menu-item active" onclick="showEmployees()">For Employees</div>
-    <div class="menu-item" onclick="showManager()">For Manager/Admin</div>
+    <!-- ===== RIGHT SIDE ===== -->
+    <div class="right-section">
 
-</div>
+        <div class="topbar">
+            <div class="user-info" id="usernameDisplay"></div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="content">
 <div class="content">
 
 <div id="employeeSection">
