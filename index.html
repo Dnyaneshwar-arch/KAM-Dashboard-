@@ -178,25 +178,29 @@ function logout(){
 
 function showEmployees(){
 
-    document.getElementById("employeeSection").classList.add("active");
-    document.getElementById("managerSection").classList.remove("active");
+    document.getElementById("employeeSection").classList.remove("hidden");
+    document.getElementById("managerSection").classList.add("hidden");
 
+    // remove active from all
     document.querySelectorAll(".menu-item").forEach(item=>{
         item.classList.remove("active");
     });
 
+    // add active to first
     document.querySelectorAll(".menu-item")[0].classList.add("active");
 }
 
 function showManager(){
 
-    document.getElementById("managerSection").classList.add("active");
-    document.getElementById("employeeSection").classList.remove("active");
+    document.getElementById("employeeSection").classList.add("hidden");
+    document.getElementById("managerSection").classList.remove("hidden");
 
+    // remove active from all
     document.querySelectorAll(".menu-item").forEach(item=>{
         item.classList.remove("active");
     });
 
+    // add active to second
     document.querySelectorAll(".menu-item")[1].classList.add("active");
 }
 </script>
