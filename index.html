@@ -169,6 +169,11 @@ body{
 .hidden{
     display:none;
 }
+.arrow{
+    margin-left:auto;
+    font-size:12px;
+    transition:0.3s;
+}
 </style>
 </head>
 
@@ -180,11 +185,12 @@ body{
     <div class="sidebar">
 
     <!-- EMPLOYEE SECTION -->
-    <div class="menu-heading active-heading" onclick="showEmployees()">
-        For Employees
-    </div>
+    <div class="menu-heading active-heading" onclick="toggleEmployees()">
+    <span>For Employees</span>
+    <span class="arrow" id="empArrow">▼</span>
+</div>
 
-    <div class="submenu" id="employeeMenu">
+  <div class="submenu" id="employeeMenu" style="display:block;">
         <div class="submenu-item" onclick="window.location.href='plan-visit.html'">Plan Visit</div>
         <div class="submenu-item">Plan Collection</div>
         <div class="submenu-item">Plan Calls</div>
@@ -194,11 +200,12 @@ body{
 
 
     <!-- MANAGER SECTION -->
-    <div class="menu-heading" onclick="showManager()">
-        For Manager/Admin
-    </div>
+    <div class="menu-heading" onclick="toggleManager()">
+    <span>For Manager/Admin</span>
+    <span class="arrow" id="mgrArrow">▼</span>
+</div>
 
-    <div class="submenu hidden" id="managerMenu">
+    <div class="submenu" id="managerMenu" style="display:none;">
         <div class="submenu-item">Approve Visits</div>
         <div class="submenu-item">Reports</div>
     </div>
@@ -257,32 +264,30 @@ function logout(){
     window.location.href = "login.html";
 }
 
-function showEmployees(){
-    document.getElementById("employeeMenu").classList.remove("hidden");
-    document.getElementById("managerMenu").classList.add("hidden");
+function toggleEmployees(){
+    const menu = document.getElementById("employeeMenu");
+    const arrow = document.getElementById("empArrow");
 
-    document.querySelectorAll(".menu-heading").forEach(item=>{
-        item.classList.remove("active-heading");
-    });
-
-    document.querySelectorAll(".menu-heading")[0].classList.add("active-heading");
-
-    document.getElementById("employeeSection").classList.remove("hidden");
-    document.getElementById("managerSection").classList.add("hidden");
+    if(menu.style.display === "none"){
+        menu.style.display = "block";
+        arrow.innerHTML = "▼";
+    } else {
+        menu.style.display = "none";
+        arrow.innerHTML = "►";
+    }
 }
 
-function showManager(){
-    document.getElementById("employeeMenu").classList.add("hidden");
-    document.getElementById("managerMenu").classList.remove("hidden");
+function toggleManager(){
+    const menu = document.getElementById("managerMenu");
+    const arrow = document.getElementById("mgrArrow");
 
-    document.querySelectorAll(".menu-heading").forEach(item=>{
-        item.classList.remove("active-heading");
-    });
-
-    document.querySelectorAll(".menu-heading")[1].classList.add("active-heading");
-
-    document.getElementById("employeeSection").classList.add("hidden");
-    document.getElementById("managerSection").classList.remove("hidden");
+    if(menu.style.display === "none"){
+        menu.style.display = "block";
+        arrow.innerHTML = "▼";
+    } else {
+        menu.style.display = "none";
+        arrow.innerHTML = "►";
+    }
 }
 </script>
 
