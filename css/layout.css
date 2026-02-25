@@ -121,13 +121,10 @@ body{
 }
 
 .arrow{
-    background:#ffffff;
-    padding:4px 8px;
-    border-radius:6px;
-    font-size:12px;
-    transition:0.3s;
+    font-size:14px;
+    color:#ffffff;
+    transition:0.3s ease;
 }
-
 .logout-btn{
     background:#ffffff;
     border:none;
