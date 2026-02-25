@@ -51,6 +51,7 @@ body{
     color:#ffffff;                 /* White text */
     background:#2f6fa5;            /* Base blue */
     transition:0.3s ease;
+    user-select:none;
 }
 
 .menu-heading:hover{
