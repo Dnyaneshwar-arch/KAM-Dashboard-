@@ -65,7 +65,6 @@ body{
 .submenu{
     margin-bottom:15px;
     padding-left:18px;    /* Space for vertical line */
-     user-select:none;
 }
 .submenu-item{
     font-size:14px;
@@ -75,6 +74,7 @@ body{
     color:#ffffff;                   /* White text */
     position:relative;
     transition:0.2s ease;
+     user-select:none;
 }
 
 /* Vertical white line */
