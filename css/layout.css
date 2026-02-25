@@ -29,49 +29,60 @@ body{
     box-shadow:2px 0 10px rgba(0,0,0,0.08);
     overflow-y:auto;       /* Scroll if content is more */
 }
+
+.sidebar{
+    padding-top:40px;
+}
+
+.menu-heading + .submenu{
+    margin-top:-6px;
+}
+
 .menu-heading{
-    font-size:14px;
+    font-size:15px;
     font-weight:600;
-    padding:12px 18px;
+    padding:14px 16px;
     cursor:pointer;
     margin-bottom:8px;
     transition:0.3s;
     width:100%;
     display:flex;
     align-items:center;
+    justify-content:space-between;
     border-radius:10px;
-    user-select:none;
+    background:#22c55e;          /* Green background */
+    color:#000;
 }
-
 .menu-heading:hover{
     background:#ffffff;
     border-left:4px solid #2563eb;
 }
 
 .active-heading{
-    background:#ffffff;
-    border-left:4px solid #2563eb;
+    background:#16a34a;   /* Darker green when active */
+    color:#000;
 }
 
 .submenu{
+    background:#2f8cab;      /* Blue panel background */
+    border-radius:10px;
+    padding:12px 0;
     margin-bottom:15px;
 }
 
 .submenu-item{
-    font-size:13px;
-    padding:8px 12px;
-    margin-left:15px;
-    margin-bottom:5px;
-    border-radius:6px;
+    font-size:14px;
+    padding:10px 18px;
+    margin-bottom:6px;
     cursor:pointer;
     transition:0.2s;
+    color:#ffffff;
 }
 
 .submenu-item:hover{
-    background:#ffffff;
-    transform:translateX(5px);
+    background:rgba(255,255,255,0.15);
+    border-radius:6px;
 }
-
 /* ===== RIGHT SECTION ===== */
 .right-section{
     margin-left:300px;   /* Same as sidebar width */
@@ -94,6 +105,14 @@ body{
 .user-info{
     margin-right:20px;
     font-size:14px;
+}
+
+.arrow{
+    background:#ffffff;
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:12px;
+    transition:0.3s;
 }
 
 .logout-btn{
