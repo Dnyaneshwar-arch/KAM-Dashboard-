@@ -1,1 +1,29 @@
 
+<div class="sidebar">
+
+    <!-- EMPLOYEE -->
+    <div class="menu-heading active-heading" onclick="toggleEmployees()">
+        <span>For Employees</span>
+        <span class="arrow" id="empArrow">▼</span>
+    </div>
+
+    <div class="submenu" id="employeeMenu" style="display:block;">
+        <div class="submenu-item" onclick="window.location.href='plan-visit.html'">Plan Visit</div>
+        <div class="submenu-item">Plan Collection</div>
+        <div class="submenu-item">Plan Calls</div>
+        <div class="submenu-item">Visit History</div>
+        <div class="submenu-item">Sales Details</div>
+    </div>
+
+    <!-- MANAGER -->
+    <div class="menu-heading" onclick="toggleManager()">
+        <span>For Manager/Admin</span>
+        <span class="arrow" id="mgrArrow">▼</span>
+    </div>
+
+    <div class="submenu" id="managerMenu" style="display:none;">
+        <div class="submenu-item">Approve Visits</div>
+        <div class="submenu-item">Reports</div>
+    </div>
+
+</div>
