@@ -41,47 +41,60 @@ body{
 .menu-heading{
     font-size:15px;
     font-weight:600;
-    padding:14px 16px;
+    padding:14px 18px;
     cursor:pointer;
-    margin-bottom:8px;
-    transition:0.3s;
-    width:100%;
+    margin-bottom:10px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     border-radius:10px;
-    background:#22c55e;          /* Green background */
-    color:#000;
-}
-.menu-heading:hover{
-    background:#ffffff;
-    border-left:4px solid #2563eb;
+    color:#ffffff;                 /* White text */
+    background:#2f6fa5;            /* Base blue */
+    transition:0.3s ease;
 }
 
+.menu-heading:hover{
+    background:#3f7fb5;            /* Same hover shade like image */
+}
 .active-heading{
     background:#16a34a;   /* Darker green when active */
     color:#000;
 }
 
 .submenu{
-    background:#2f8cab;      /* Blue panel background */
-    border-radius:10px;
-    padding:12px 0;
     margin-bottom:15px;
+    padding-left:18px;    /* Space for vertical line */
 }
-
 .submenu-item{
     font-size:14px;
-    padding:10px 18px;
+    padding:8px 0 8px 14px;
     margin-bottom:6px;
     cursor:pointer;
-    transition:0.2s;
-    color:#ffffff;
+    color:#ffffff;                   /* White text */
+    position:relative;
+    transition:0.2s ease;
 }
 
+/* Vertical white line */
+.submenu-item::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:8px;
+    height:60%;
+    width:2px;
+    background:#ffffff;
+    opacity:0.4;
+}
+
+/* Hover zoom */
 .submenu-item:hover{
-    background:rgba(255,255,255,0.15);
-    border-radius:6px;
+    transform:scale(1.05);
+}
+
+/* Click active effect */
+.submenu-item:active{
+    transform:scale(0.98);
 }
 /* ===== RIGHT SECTION ===== */
 .right-section{
