@@ -8,7 +8,7 @@
 }
 
 body{
-    background:#f4f6f9;
+    background:#ffffff;
 }
 
 /* ===== MAIN LAYOUT ===== */
@@ -24,7 +24,7 @@ body{
     position:fixed;        /* Stick to left */
     top:0;
     left:0;
-    background:#ffffff;
+    background:#0458AB;
     padding:80px 20px 20px 20px;
     box-shadow:2px 0 10px rgba(0,0,0,0.08);
     overflow-y:auto;       /* Scroll if content is more */
@@ -44,12 +44,12 @@ body{
 }
 
 .menu-heading:hover{
-    background:#bfdbfe;
+    background:#ffffff;
     border-left:4px solid #2563eb;
 }
 
 .active-heading{
-    background:#bfdbfe;
+    background:#ffffff;
     border-left:4px solid #2563eb;
 }
 
@@ -68,7 +68,7 @@ body{
 }
 
 .submenu-item:hover{
-    background:#f1f1f1;
+    background:#ffffff;
     transform:translateX(5px);
 }
 
@@ -83,7 +83,7 @@ body{
 /* ===== TOPBAR ===== */
 .topbar{
     height:60px;
-    background:#ffffff;
+    background:#0458AB;
     display:flex;
     align-items:center;
     justify-content:flex-end;
@@ -97,7 +97,7 @@ body{
 }
 
 .logout-btn{
-    background:#bfdbfe;
+    background:#ffffff;
     border:none;
     padding:6px 12px;
     border-radius:6px;
